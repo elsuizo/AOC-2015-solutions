@@ -1,0 +1,7 @@
+Santa esta llevando regalos en una grilla 2D de casas, comienza a dejar los regalos
+en el punto donde empieza el viaje y luego un elfo le va diciendo via radio como
+tiene que seguir. Los movimientos son siempre exactamente de a uno hacia el norte
+(^) hacia el sur (v), al este (>) y al oeste (<), por cada movimiento el deja un regalo
+Sin embargo el elfo parece que tomo mucho licor de huevo jajjsadj y las direcciones
+no estan bien y santa parece que termina yendo a algunas casas mas de una vez. Cuantas
+casas reciben al menos un regalo???
