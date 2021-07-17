@@ -103,17 +103,14 @@ fn part1(directions: &[Directions]) -> usize {
 fn part2(directions: &[Directions]) -> usize {
     let mut map_santa = Map::default();
     let mut map_robot = Map::default();
-    let directions_santa: Vec<_> = directions.iter().step_by(2).collect();
-    let directions_robot: Vec<_> = directions.iter().skip(1).step_by(2).collect();
-    for direction in directions_santa {
-        map_santa.update(*direction);
+    for direction_santa in directions.iter().step_by(2) {
+        map_santa.update(*direction_santa);
     }
-    for direction in directions_robot {
-        map_robot.update(*direction);
+    for direction_robot in directions.iter().skip(1).step_by(2) {
+        map_robot.update(*direction_robot);
     }
 
-    let result: HashSet<_> = map_santa.history.union(&map_robot.history).collect();
-    result.len()
+    map_santa.history.union(&map_robot.history).collect::<Vec<_>>().len()
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
