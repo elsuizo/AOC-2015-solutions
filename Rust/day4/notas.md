@@ -1,0 +1,11 @@
+# Dia4
+
+Santa necesita ayuda minando algunos AdventCoins (muy similares a los bitcoins)
+Para hacer esto necesita encontrar hashes MD5 los cuales en hexa comienzan con
+al menos 5 ceros. La entrada a el MD5 es una llave secreta (el input del problema)
+seguido de un numero en decimal. Para minar AdventCoins debemos primero el numero
+positivo mas pequenio (sin ceros a la izquierda) que producen dicho hash
+
+Por ejemplo:
+
+si la palabra secreta es abcdef la respuesta debe ser: 609043
