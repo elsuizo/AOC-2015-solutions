@@ -32,6 +32,23 @@ fn contains_set(input: &str) -> bool {
     false
 }
 
+fn contains_between(input: &str) -> bool {
+    for b in input.as_bytes().windows(3) {
+        if b[0] == b[2] {
+            return true;
+        }
+    }
+    false
+}
+
+fn contains_pairs(input: &str) -> bool {
+    let mut pairs: HashMap<&[u8], usize> = HashMap::new();
+    for b in input.as_bytes().windows(2) {
+        *pairs.entry(b).or_insert(1) += 1;
+    }
+    pairs.values().any(|&number| number > 2)
+}
+
 fn part1(input: &str) -> usize {
     input
         .lines()
@@ -39,9 +56,17 @@ fn part1(input: &str) -> usize {
         .count()
 }
 
+fn part2(input: &str) -> usize {
+    input
+        .lines()
+        .filter(|line| contains_pairs(line) && contains_between(line))
+        .count()
+}
+
 fn main() {
     let input = include_str!("../input.txt");
     println!("the number of string that are nice is: {}", part1(&input));
+    println!("the number of string that are nice is: {}", part2(&input));
 }
 
 #[cfg(test)]
@@ -71,5 +96,34 @@ mod tests {
         let input2 = "lasdla";
         assert!(contains_set(&input1));
         assert!(!contains_set(&input2));
+    }
+
+    #[test]
+    fn contains_between_test() {
+        let input1 = "xyx";
+        let input2 = "abcdde";
+        assert!(contains_between(&input1));
+        assert!(!contains_between(&input2))
+    }
+
+    #[test]
+    fn contains_pairs_test() {
+        let input1 = "aabcdefgaa";
+        let input2 = "xyxy";
+        assert!(contains_pairs(&input1));
+        assert!(contains_pairs(&input2));
+    }
+
+    // TODO(elsuizo:2021-07-21): no se porque no anda si los test anda todo bien...
+    #[test]
+    fn part2_test() {
+        let input1 = "qjhvhtzxzqqjkmpb";
+        let input2 = "xxyxx";
+        let input3 = "uurcxstgmygtbstg";
+        let input4 = "ieodomkazucvgmuy";
+        assert_eq!(part2(&input1), 1);
+        assert_eq!(part2(&input2), 1);
+        assert_eq!(part2(&input3), 0);
+        assert_eq!(part2(&input4), 0);
     }
 }
