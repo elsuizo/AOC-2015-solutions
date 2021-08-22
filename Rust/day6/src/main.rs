@@ -1,7 +1,7 @@
-/// Day6
-/// Cosas que cambiaria:
-/// - No me sirvio de nada al final usar Range, porque cuando se lo pasas a una
-///   funcion como parametro despues no lo podes usar como iterador
+// Day6
+// Cosas que cambiaria:
+// - No me sirvio de nada al final usar Range, porque cuando se lo pasas a una
+//   funcion como parametro despues no lo podes usar como iterador
 use std::ops::{Index, IndexMut, Range};
 
 #[derive(Debug, Default)]

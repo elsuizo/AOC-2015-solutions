@@ -1,27 +1,28 @@
-# Dia 7
+# Dia7
+## Parte1
+Este año Santa le compro al pequeño Boby un circuito logico con cables y compuertas
+logicas, pero es muy pequeño y necesita ayuda para armarlo.
 
-Este año Santa le compro al pequeño Boby un conjunto de cables y unas
-compuertas logicas. Desafortunadamente el chico es muy pequenio y no puede
-solo, por eso necesita de nuestra ayuda.
+Cada cable tiene un identificador (algunas letras en minusculas) y esta puede llevar
+una señal de 16 bits. Una señal es provista para cada uno de los cables por una compuerta,
+otro cable o por un valor especifico. Cada señal puede solo tener una señal de una
+sola fuente, pero puede proveer su señal a muchas otras. Una compuerta provee una
+señal solo cuando todas sus entradas tienen una señal.
 
-Cada cable tiene un identificador(a lo sumo dos letras) y puede llevar una
-senial de 16bits. La senial es provista a cada cable por una compuerta logica,
-otro cable o por un valor especifico. Cada cable solo puede obtener su senial
-de una sola fuente pero puede proveer la suya a varias compuertas, una
-compuerta solo emite un resultado cuando todas las seniales que entran en ellas
-tienen una senial
+Las instrucciones que nos dan describen como conectar las partes, por ejemplo:
 
-Las instrucciones que nos dan describen como conectar los cables y las
-compuertas por ejemplo: `x AND y -> z` significa que tenemos que conectar los
-cables `x` e `y` a una compuerta `AND` y la salida asignarsela a el cable `z`
+`x AND y -> z` significa que tenemos que conectar el cable `x` con y el `y` a una
+compuerta `AND` y conectar su salida a el cable `z`
 
 Por ejemplo:
 
-`123 -> x` Significa que la senial `123` es asignada a el cable `x`
+- `123 -> x`: Significa que la señal `123` es provista al cable `x`
 
-Por ejemplo con las siguientes instrucciones:
+Otras posibles compuertas incluyen `OR` `RSHIFT` `LSHIFT` `NOT` `AND`
 
-```txt
+Por ejemplo con el siguiente circuito:
+
+```text
 123 -> x
 456 -> y
 x AND y -> d
@@ -31,9 +32,9 @@ y RSHIFT 2 -> g
 NOT x -> h
 NOT y -> i
 ```
-Despues de realizarlas las seniales tienen los siguientes valores:
+Obtenemos las siguientes señales:
 
-```txt
+```text
 d: 72
 e: 507
 f: 492
@@ -44,5 +45,11 @@ x: 123
 y: 456
 ```
 
-Con las instrucciones que le dan al ninio (que es nuestra `input`) cual es el valor
-que tiene el cable `a`
+Con las instrucciones que nos dan(el input del puzzle) cual es la señal que contiene
+el cable `a` despues de armar el circuito???
+
+## Parte 2
+
+Ahora tenemos que tomar la senial que calculamos en la parte 1, sobreescribir
+la senial `b` con ese valor y resetear los otros valores de los otros cables
+(incluyendo a `a`). Cual es la senial que tiene `a` ahora???
